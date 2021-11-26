@@ -1,0 +1,29 @@
+spring:
+  init:
+    mode: always
+    jpa:
+      defer-datasource-initialization: true
+      database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+        # SessionFactory? ???? drop,create,alter ->?? drop
+        # spring boot ??? ?????? ?? ??
+        ddl-auto: create-drop
+      properties:
+        # sql view ??
+        hibernate:
+          format_sql: true
+          show_sql: true
+
+    h2:
+      console:
+        enabled: true
+      datasource:
+        url: jdbc:h2:mem:testdb
+        driver-class-name: org.h2.Driver
+        username: sa
+        password:
+
+# ?? ?? ??
+logging:
+  level:
+    home: DEBUG
